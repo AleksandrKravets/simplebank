@@ -21,10 +21,9 @@ COPY start.sh .
 COPY wait-for.sh .
 COPY db/migration ./migration
 
-# Inform docker that container listens 80 port at runtime
-# It is just a documentation
-EXPOSE 8080
+
 
 # Run main.exe from working directory
-CMD ["/app/main"]
-ENTRYPOINT ["/app/start.sh"]
+EXPOSE 8080
+CMD [ "/app/main" ]
+ENTRYPOINT [ "/app/start.sh" ]
