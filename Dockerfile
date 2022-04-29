@@ -16,7 +16,7 @@ WORKDIR /app
 COPY --from=builder /app/main .
 COPY --from=builder /app/migrate.linux-amd64 ./migrate
 # Copy config file
-RUN chmod +x start.sh
+# RUN chmod +x start.sh
 
 COPY app.env .
 COPY start.sh .
@@ -27,5 +27,6 @@ COPY db/migration ./migration
 
 # Run main.exe from working directory
 EXPOSE 8080
+CMD [ "chmod", "+x", "start.sh" ]
 CMD [ "/app/main" ]
 ENTRYPOINT [ "/app/start.sh" ]
