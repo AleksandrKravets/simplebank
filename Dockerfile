@@ -16,6 +16,8 @@ WORKDIR /app
 COPY --from=builder /app/main .
 COPY --from=builder /app/migrate.linux-amd64 ./migrate
 # Copy config file
+RUN go chmod +x start.sh
+
 COPY app.env .
 COPY start.sh .
 COPY wait-for.sh .
